@@ -1,0 +1,40 @@
+{
+  "name": "@brybrant/kaleidoscope2",
+  "author": "brybrant",
+  "license": "GPL-3.0-only",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brybrant/kaleidoscope2.git"
+  },
+  "homepage": "https://brybrant.github.io/kaleidoscope2/",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "dependencies": {
+    "pixi.js": "^8.5.1"
+  },
+  "devDependencies": {
+    "@brybrant/configs": "github:brybrant/configs",
+    "@brybrant/kaleidoscope": "github:brybrant/kaleidoscope",
+    "@brybrant/sass-okhsv-okhsl": "^1.0.0",
+    "@brybrant/svg-icons": "github:brybrant/svg-icons",
+    "globals": "^15.11.0",
+    "sass": "^1.80.3",
+    "vite": "^5.4.9",
+    "vite-plugin-eslint2": "^5.0.1",
+    "vite-plugin-stylelint": "^5.3.1",
+    "vite-plugin-svgo": "^1.6.2"
+  },
+  "browserslist": [
+    "> 1%, not dead, not ie 11, not op_mini all"
+  ]
+}
