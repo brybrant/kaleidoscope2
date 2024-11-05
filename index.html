@@ -5,29 +5,10 @@
     <link rel='icon' type='image/svg+xml' href='/favicon.svg'/>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
     <meta name='darkreader-lock'/>
-    <title data-sm=''>Kaleidoscope</title>
+    <title>Kaleidoscope</title>
   </head>
   <body>
     <div id='background'></div>
-    <main>
-      <h1>KALEIDOSCOPE</h1>
-      <a class='button' href='https://github.com/brybrant/kaleidoscope2' target='_blank'>View Source</a>
-    </main>
-    <script>
-      (function() {
-        var title = document.getElementsByTagName('h1').item(0);
-
-        var newTitle = '';
-
-        for (var i = 0; i < title.innerText.length; i++) {
-          var letter = title.innerText.charAt(i);
-
-          newTitle += '<span class="letter-' + i + '">' + letter + '</span>';
-        }
-
-        title.innerHTML = newTitle;
-      })();
-    </script>
     <script type='module' src='/src/app.js'></script>
   </body>
 </html>

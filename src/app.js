@@ -1,3 +1,5 @@
+import './app.scss';
+
 import { Application, Container, DEG_TO_RAD, Graphics } from 'pixi.js';
 
 import DiamondShape from './shapes/diamond.js';
@@ -10,18 +12,34 @@ import StarShape from './shapes/star.js';
 
 import GitHubSVG from '../node_modules/@brybrant/svg-icons/GitHub.svg';
 
-document
-  .getElementsByClassName('button')
-  .item(0)
-  .insertAdjacentHTML('afterbegin', GitHubSVG);
+const main = document.createElement('main');
+
+const title = 'KALEIDOSCOPE';
+
+const h1 = document.createElement('h1');
+
+for (let i = 0; i < title.length; i++) {
+  const letter = title.charAt(i);
+
+  h1.innerHTML += `<span class='letter-${i}'>${letter}</span>`;
+}
+
+main.appendChild(h1);
+
+const githubLink = document.createElement('a');
+githubLink.className = 'button';
+githubLink.href = 'https://github.com/brybrant/kaleidoscope2';
+githubLink.target = '_blank';
+githubLink.innerHTML = `${GitHubSVG}View Source`;
+main.appendChild(githubLink);
+
+document.body.appendChild(main);
 
 import colors from './colors.module.scss';
 
 for (const [color, value] of Object.entries(colors)) {
   colors[color] = Number(value);
 }
-
-import './app.scss';
 
 const background = document.getElementById('background');
 
