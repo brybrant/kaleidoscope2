@@ -21,16 +21,11 @@ let context4;
  * @param {Path2D} path
  * @param {Number} offset
  * @param {Number} rotation
- * @param {Number} i
  * @param {String} strokeStyle
  */
-function shape(path, offset, rotation, i, strokeStyle) {
+function shape(path, offset, rotation, strokeStyle) {
   context1.save();
 
-  context1.clip(constants.clipPaths[i]);
-
-  context1.rotate(Math.ceil(i / 2) * constants.rad60);
-  if (i % 2 === 1) context1.scale(1, -1);
   context1.translate(offset * constants.offsetX, offset * constants.offsetY);
   context1.rotate(rotation);
 
@@ -54,9 +49,6 @@ export default () => {
   /** @type {HTMLCanvasElement} */
   let canvas4;
 
-  /** @type {Number} */
-  let radius;
-
   function resize() {
     canvas1.width =
       canvas2.width =
@@ -68,7 +60,7 @@ export default () => {
       canvas3.height =
       canvas4.height = window.innerHeight * (window.devicePixelRatio / 2);
 
-    radius = Math.max(canvas1.width, canvas1.height) * Math.SQRT1_2;
+    const radius = Math.max(canvas1.width, canvas1.height) * Math.SQRT1_2;
 
     const scale = radius / constants.viewBox;
 
@@ -100,11 +92,17 @@ export default () => {
     lastTimestamp = timestamp;
 
     for (let i = 0; i < 3; i++) {
+      context1.save();
+
+      context1.clip(constants.clipPaths[i]);
+
+      context1.rotate(Math.ceil(i / 2) * constants.rad60);
+      if (i % 2 === 1) context1.scale(1, -1);
+
       shape(
         shapes.flower,
         256,
         rotation,
-        i,
         colors.secondaryDarker,
       );
 
@@ -112,7 +110,6 @@ export default () => {
         shapes.infinity,
         160,
         rotation,
-        i,
         colors.primaryMedium,
       );
 
@@ -120,7 +117,6 @@ export default () => {
         shapes.infinity,
         512,
         constants.rad120 - rotation,
-        i,
         colors.primaryMedium,
       );
 
@@ -128,7 +124,6 @@ export default () => {
         shapes.square,
         160,
         -rotation,
-        i,
         colors.secondaryMedium,
       );
 
@@ -136,7 +131,6 @@ export default () => {
         shapes.diamond,
         480,
         rotation,
-        i,
         colors.secondaryMedium,
       );
 
@@ -144,7 +138,6 @@ export default () => {
         shapes.pentagon1,
         120,
         constants.rad36 + rotation,
-        i,
         colors.primaryBright,
       );
 
@@ -152,7 +145,6 @@ export default () => {
         shapes.pentagon2,
         620,
         constants.rad60 - rotation,
-        i,
         colors.primaryBright,
       );
 
@@ -160,9 +152,10 @@ export default () => {
         shapes.star,
         28,
         rotation,
-        i,
         colors.primaryBright,
       );
+
+      context1.restore();
     }
 
     const segment = context1.getImageData(0, 0, canvas1.width, canvas1.height);
@@ -177,10 +170,7 @@ export default () => {
   }
 
   onMount(() => {
-    context1 = canvas1.getContext('2d', {
-      alpha: false,
-      willReadFrequently: true,
-    });
+    context1 = canvas1.getContext('2d', { alpha: false });
     context2 = canvas2.getContext('2d', { alpha: false });
     context3 = canvas3.getContext('2d', { alpha: false });
     context4 = canvas4.getContext('2d', { alpha: false });
