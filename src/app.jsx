@@ -1,3 +1,4 @@
+import { For } from 'solid-js';
 import { render } from 'solid-js/web';
 
 import GitHubSVG from '@brybrant/svg-icons/GitHub.svg';

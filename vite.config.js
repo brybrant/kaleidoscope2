@@ -3,6 +3,7 @@ import eslintPlugin from 'vite-plugin-eslint2';
 import solidPlugin from 'vite-plugin-solid';
 import solidSvgPlugin from 'vite-plugin-solid-svg';
 import stylelintPlugin from 'vite-plugin-stylelint';
+import { NodePackageImporter } from 'sass-embedded';
 
 import * as configs from '@brybrant/configs';
 
@@ -19,6 +20,11 @@ export default defineConfig(({ mode }) => {
     },
     css: {
       postcss: configs.postCSSConfig,
+      preprocessorOptions: {
+        scss: {
+          importers: [new NodePackageImporter()],
+        },
+      },
     },
     plugins: [
       stylelintPlugin({

@@ -1,6 +1,14 @@
 import { onCleanup, onMount } from 'solid-js';
 
-import * as shapes from '../shapes.js';
+import {
+  flower,
+  infinity,
+  square,
+  diamond,
+  pentagon1,
+  pentagon2,
+  star,
+} from '../shapes.js';
 import * as constants from '../constants.js';
 import colors from '../colors.module.scss';
 
@@ -53,12 +61,14 @@ export default () => {
     canvas1.width =
       canvas2.width =
       canvas3.width =
-      canvas4.width = window.innerWidth * (window.devicePixelRatio / 2);
+      canvas4.width =
+        window.innerWidth * (window.devicePixelRatio / 2);
 
     canvas1.height =
       canvas2.height =
       canvas3.height =
-      canvas4.height = window.innerHeight * (window.devicePixelRatio / 2);
+      canvas4.height =
+        window.innerHeight * (window.devicePixelRatio / 2);
 
     const radius = Math.max(canvas1.width, canvas1.height) * Math.SQRT1_2;
 
@@ -99,61 +109,21 @@ export default () => {
       context1.rotate(Math.ceil(i / 2) * constants.rad60);
       if (i % 2 === 1) context1.scale(1, -1);
 
-      shape(
-        shapes.flower,
-        256,
-        rotation,
-        colors.secondaryDarker,
-      );
+      shape(flower, 256, rotation, colors.secondaryDarker);
 
-      shape(
-        shapes.infinity,
-        160,
-        rotation,
-        colors.primaryMedium,
-      );
+      shape(infinity, 160, rotation, colors.primaryMedium);
 
-      shape(
-        shapes.infinity,
-        512,
-        constants.rad120 - rotation,
-        colors.primaryMedium,
-      );
+      shape(infinity, 512, constants.rad120 - rotation, colors.primaryMedium);
 
-      shape(
-        shapes.square,
-        160,
-        -rotation,
-        colors.secondaryMedium,
-      );
+      shape(square, 160, -rotation, colors.secondaryMedium);
 
-      shape(
-        shapes.diamond,
-        480,
-        rotation,
-        colors.secondaryMedium,
-      );
+      shape(diamond, 480, rotation, colors.secondaryMedium);
 
-      shape(
-        shapes.pentagon1,
-        120,
-        constants.rad36 + rotation,
-        colors.primaryBright,
-      );
+      shape(pentagon1, 120, constants.rad36 + rotation, colors.primaryBright);
 
-      shape(
-        shapes.pentagon2,
-        620,
-        constants.rad60 - rotation,
-        colors.primaryBright,
-      );
+      shape(pentagon2, 620, constants.rad60 - rotation, colors.primaryBright);
 
-      shape(
-        shapes.star,
-        28,
-        rotation,
-        colors.primaryBright,
-      );
+      shape(star, 28, rotation, colors.primaryBright);
 
       context1.restore();
     }
@@ -196,4 +166,4 @@ export default () => {
       <canvas ref={canvas4} />
     </>
   );
-}
+};

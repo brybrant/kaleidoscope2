@@ -1,6 +1,4 @@
-@use 'sass:string';
-
-@use '../node_modules/@brybrant/sass-okhsv-okhsl' as convert;
+@use 'pkg:@brybrant/sass-okhsv-okhsl' as convert;
 
 $primary-darker: convert.color_to_hex(convert.okhsv_to_rgba(205deg, 0.65, 0.5));
 $primary-medium: convert.color_to_hex(convert.okhsv_to_rgba(205deg, 0.65, 0.6));
