@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint2';
+import solidPlugin from 'vite-plugin-solid';
+import solidSvgPlugin from 'vite-plugin-solid-svg';
 import stylelintPlugin from 'vite-plugin-stylelint';
-import svgoPlugin from 'vite-plugin-svgo';
 
 import * as configs from '@brybrant/configs';
 
@@ -18,21 +19,24 @@ export default defineConfig(({ mode }) => {
     },
     css: {
       postcss: configs.postCSSConfig,
-      preprocessorOptions: {
-        scss: {
-          api: 'modern-compiler',
-        },
-      },
     },
     plugins: [
       stylelintPlugin({
         lintInWorker: true,
         config: configs.stylelintConfig,
       }),
+      solidPlugin({
+        hot: false,
+      }),
+      solidSvgPlugin({
+        defaultAsComponent: true,
+        svgo: {
+          svgoConfig: configs.svgoConfig,
+        },
+      }),
       eslintPlugin({
         lintInWorker: true,
       }),
-      svgoPlugin(configs.svgoConfig),
     ],
     server: {
       host: '127.0.0.1',

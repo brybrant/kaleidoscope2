@@ -2,22 +2,18 @@
 
 @use '../node_modules/@brybrant/sass-okhsv-okhsl' as convert;
 
-$primary-darker: convert.okhsv_to_rgba(205deg, 0.65, 0.5);
-$primary-medium: convert.okhsv_to_rgba(205deg, 0.65, 0.6);
-$primary-bright: convert.okhsv_to_rgba(205deg, 0.65, 0.7);
-$secondary-darker: convert.okhsv_to_rgba(25deg, 0.65, 0.5);
-$secondary-medium: convert.okhsv_to_rgba(25deg, 0.65, 0.6);
-$secondary-bright: convert.okhsv_to_rgba(25deg, 0.65, 0.7);
-
-@function js-hex($string) {
-  @return string.unquote("0x" + string.slice($string, 2));
-}
+$primary-darker: convert.color_to_hex(convert.okhsv_to_rgba(205deg, 0.65, 0.5));
+$primary-medium: convert.color_to_hex(convert.okhsv_to_rgba(205deg, 0.65, 0.6));
+$primary-bright: convert.color_to_hex(convert.okhsv_to_rgba(205deg, 0.65, 0.7));
+$secondary-darker: convert.color_to_hex(convert.okhsv_to_rgba(25deg, 0.65, 0.5));
+$secondary-medium: convert.color_to_hex(convert.okhsv_to_rgba(25deg, 0.65, 0.6));
+$secondary-bright: convert.color_to_hex(convert.okhsv_to_rgba(25deg, 0.65, 0.7));
 
 :export {
-  primaryDarker: js-hex(convert.color_to_hex($primary-darker));
-  primaryMedium: js-hex(convert.color_to_hex($primary-medium));
-  primaryBright: js-hex(convert.color_to_hex($primary-bright));
-  secondaryDarker: js-hex(convert.color_to_hex($secondary-darker));
-  secondaryMedium: js-hex(convert.color_to_hex($secondary-medium));
-  secondaryBright: js-hex(convert.color_to_hex($secondary-bright));
+  primaryDarker: $primary-darker;
+  primaryMedium: $primary-medium;
+  primaryBright: $primary-bright;
+  secondaryDarker: $secondary-darker;
+  secondaryMedium: $secondary-medium;
+  secondaryBright: $secondary-bright;
 }
