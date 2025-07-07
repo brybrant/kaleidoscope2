@@ -20,8 +20,9 @@ $kaleidoscope-fonts: '../node_modules/@brybrant/kaleidoscope/public/fonts';
 html {
   overflow-x: hidden;
   background: #000;
-  font-size: 100%;
-  font-size: clamp(100%, min(4vw, 5vh), 200%);
+  font-size: 200%;
+  font-size: clamp(100%, 4vmin, 200%);
+  font-size: clamp(100%, 4dvmin, 200%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%;
@@ -32,6 +33,7 @@ html {
 body {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   font-weight: 400;
   font-family:
@@ -46,8 +48,6 @@ body {
 }
 
 .background {
-  // position: fixed;
-
   position: absolute;
   top: 0;
   left: 0;
@@ -81,7 +81,8 @@ main {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 2rem 0;
+  min-height: 100dvh;
+  padding: 4rem 0;
   color: #fff;
 }
 
