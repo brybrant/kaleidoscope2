@@ -1,8 +1,8 @@
 # Kaleidoscope 2 (JavaScript)
 
-[Kaleidoscope 2](https://brybrant.github.io/kaleidoscope2/) is a JavaScript experiment made with [Solid](https://www.solidjs.com) and [Vite](https://vitejs.dev) by Matt Bryant.
+[Kaleidoscope 2](https://brybrant.github.io/kaleidoscope2/) is a [Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) experiment made with [Solid](https://www.solidjs.com) and [Vite](https://vitejs.dev) by Matt Bryant.
 
-[The first kaleidoscope project](https://github.com/brybrant/kaleidoscope) is made with CSS.
+[Kaleidoscope 1](https://github.com/brybrant/kaleidoscope) is made with CSS.
 
 ## DM Serif Display (Google Font)
 
