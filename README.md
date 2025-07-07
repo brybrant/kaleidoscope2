@@ -1,6 +1,6 @@
 # Kaleidoscope 2 (JavaScript)
 
-[Kaleidoscope 2](https://brybrant.github.io/kaleidoscope2/) is a JavaScript experiment made with [PixiJS](https://pixijs.com/) and [Vite](https://vitejs.dev) by Matt Bryant.
+[Kaleidoscope 2](https://brybrant.github.io/kaleidoscope2/) is a JavaScript experiment made with [Solid](https://www.solidjs.com) and [Vite](https://vitejs.dev) by Matt Bryant.
 
 [The first kaleidoscope project](https://github.com/brybrant/kaleidoscope) is made with CSS.
 
