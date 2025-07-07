@@ -1,5 +1,7 @@
 @use './colors.module' as *;
 
+@use '../node_modules/@brybrant/kaleidoscope/src/app.scss' as *;
+
 $kaleidoscope-fonts: '../node_modules/@brybrant/kaleidoscope/public/fonts';
 
 @font-face {
@@ -13,48 +15,14 @@ $kaleidoscope-fonts: '../node_modules/@brybrant/kaleidoscope/public/fonts';
   font-display: swap;
 }
 
-*, :before, :after {
-  box-sizing: border-box;
-}
-
-html {
-  overflow-x: hidden;
-  background: #000;
-  font-size: 200%;
-  font-size: clamp(100%, 4vmin, 200%);
-  font-size: clamp(100%, 4dvmin, 200%);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
-  margin: 0;
-  font-weight: 400;
-  font-family:
-    'DM Serif Display',
-    TimesNewRoman,
-    'Times New Roman',
-    Times,
-    Georgia,
-    'Georgia Pro',
-    serif;
-  text-align: center;
-}
-
 .background {
-  position: absolute;
   top: 0;
   left: 0;
   display: flex;
   flex-flow: row wrap;
   width: 100%;
   height: 100%;
+  transform: none;
 }
 
 canvas {
@@ -74,97 +42,19 @@ canvas:nth-child(3) {
   transform: scaleX(-1);
 }
 
-main {
-  position: relative;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  min-height: 100dvh;
-  padding: 4rem 0;
-  color: #fff;
-}
-
 h1 {
-  margin: 0;
-  padding-bottom: 0.0625rem;
-  font-weight: 400;
-  font-size: 3rem;
-  line-height: 3rem;
   text-shadow:
     0 1px 1px $primary-darker,
     0 2px 1px $primary-darker;
 }
 
-.letter-0 {
-  letter-spacing: 0.03125rem;
-}
-
-.letter-1 {
-  letter-spacing: 0.03125rem;
-}
-
-.letter-2 {
-  letter-spacing: 0.03125rem;
-}
-
-.letter-3 {
-  letter-spacing: 0.125rem;
-}
-
-.letter-4 {
-  letter-spacing: 0.15625rem;
-}
-
-.letter-5 {
-  letter-spacing: 0.03125rem;
-}
-
-.letter-6 {
-  letter-spacing: 0.03125rem;
-}
-
-.letter-7 {
-  letter-spacing: 0.03125rem;
-}
-
-.letter-8 {
-  letter-spacing: 0.0625rem;
-}
-
-.letter-9 {
-  letter-spacing: 0.125rem;
-}
-
-.letter-10 {
-  letter-spacing: 0.03125rem;
-}
-
 .button {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  display: block;
-  width: 2rem;
-  height: 2rem;
-  margin-left: -1rem;
-  padding: 0.125rem;
-  border: 2px solid #fff;
-  border-radius: 50%;
   background: $primary-darker;
-  color: #fff;
   box-shadow:
     0 1px 1px $primary-darker,
     0 2px 1px $primary-darker;
-  cursor: pointer;
 
   &:hover, &:active {
     background: $secondary-darker;
-  }
-
-  svg {
-    display: block;
-    fill: currentColor;
   }
 }
