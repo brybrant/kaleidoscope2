@@ -28,7 +28,7 @@ const App = () => (
   </>
 );
 
-const dispose = render(() => (<App />), document.getElementById('app'));
+const dispose = render(() => <App />, document.getElementById('app'));
 
 if (import.meta.hot) {
   import.meta.hot.accept();
