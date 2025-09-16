@@ -24,7 +24,7 @@ export default eslintConfig(
     languageOptions: {
       globals: {
         ...globals.browser,
-      }
-    }
+      },
+    },
   },
 );
