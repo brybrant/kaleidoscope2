@@ -231,7 +231,7 @@ document.body.insertAdjacentHTML(
       .join('')}</h1>
     <a
       class='button'
-      href='https://github.com/brybrant/gear-cube'
+      href='https://github.com/brybrant/kaleidoscope'
       target='_blank'
     >
       ${GitHubSVG}
