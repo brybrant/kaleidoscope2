@@ -1,53 +1,12 @@
-import { defineConfig } from 'vite';
-import eslintPlugin from 'vite-plugin-eslint2';
-import solidPlugin from 'vite-plugin-solid';
-import solidSvgPlugin from 'vite-plugin-solid-svg';
-import stylelintPlugin from 'vite-plugin-stylelint';
-import { NodePackageImporter } from 'sass-embedded';
+import viteConfig from '@brybrant/vite-config';
 
-import * as configs from '@brybrant/configs';
+import threeMinifyPlugin from 'rollup-plugin-three-minify';
 
-export default defineConfig(({ mode }) => {
-  const development = mode === 'development';
-
-  return {
-    base: '/kaleidoscope2/',
-    build: {
-      minify: development ? true : 'terser',
-      ...(!development && {
-        terserOptions: configs.terserConfig,
-      }),
-    },
-    css: {
-      postcss: configs.postCSSConfig,
-      preprocessorOptions: {
-        scss: {
-          importers: [new NodePackageImporter()],
-        },
-      },
-    },
-    plugins: [
-      stylelintPlugin({
-        lintInWorker: true,
-        config: configs.stylelintConfig,
-      }),
-      solidPlugin({
-        hot: false,
-      }),
-      solidSvgPlugin({
-        defaultAsComponent: true,
-        svgo: {
-          svgoConfig: configs.svgoConfig,
-        },
-      }),
-      eslintPlugin({
-        lintInWorker: true,
-      }),
-    ],
-    server: {
-      host: '127.0.0.1',
-      port: 3000,
-      strictPort: true,
-    },
-  };
+export default viteConfig({
+  base: '/kaleidoscope2/',
+  plugins: [
+    threeMinifyPlugin({
+      features: ['clipping', 'colorspace', 'vertices'],
+    }),
+  ],
 });

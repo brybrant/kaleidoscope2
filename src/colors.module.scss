@@ -1,17 +1,41 @@
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:math';
+
 @use 'pkg:@brybrant/sass-okhsv-okhsl' as convert;
 
-$primary-darker: convert.color_to_hex(convert.okhsv_to_rgba(205deg, 0.65, 0.5));
-$primary-medium: convert.color_to_hex(convert.okhsv_to_rgba(205deg, 0.65, 0.6));
-$primary-bright: convert.color_to_hex(convert.okhsv_to_rgba(205deg, 0.65, 0.7));
-$secondary-darker: convert.color_to_hex(convert.okhsv_to_rgba(25deg, 0.65, 0.5));
-$secondary-medium: convert.color_to_hex(convert.okhsv_to_rgba(25deg, 0.65, 0.6));
-$secondary-bright: convert.color_to_hex(convert.okhsv_to_rgba(25deg, 0.65, 0.7));
+$primary-darker-rgb: convert.okhsv_to_rgba(205deg, 0.65, 0.5);
+$primary-medium-rgb: convert.okhsv_to_rgba(205deg, 0.65, 0.6);
+$primary-bright-rgb: convert.okhsv_to_rgba(205deg, 0.65, 0.7);
+$secondary-darker-rgb: convert.okhsv_to_rgba(25deg, 0.65, 0.5);
+$secondary-medium-rgb: convert.okhsv_to_rgba(25deg, 0.65, 0.6);
+$secondary-bright-rgb: convert.okhsv_to_rgba(25deg, 0.65, 0.7);
+
+// HEX colors
+$primary-darker: convert.color_to_hex($primary-darker-rgb);
+$primary-medium: convert.color_to_hex($primary-medium-rgb);
+$primary-bright: convert.color_to_hex($primary-bright-rgb);
+$secondary-darker: convert.color_to_hex($secondary-darker-rgb);
+$secondary-medium: convert.color_to_hex($secondary-medium-rgb);
+$secondary-bright: convert.color_to_hex($secondary-bright-rgb);
+
+@function rgb-to-long($color) {
+  $r: math.round(color.channel($color, 'red'));
+  $g: math.round(color.channel($color, 'green'));
+  $b: math.round(color.channel($color, 'blue'));
+
+  @return $r * 65536 + $g * 256 + $b;
+}
 
 :export {
   primaryDarker: $primary-darker;
+  primaryDarkerLong: rgb-to-long($primary-darker-rgb);
   primaryMedium: $primary-medium;
+  primaryMediumLong: rgb-to-long($primary-medium-rgb);
   primaryBright: $primary-bright;
+  primaryBrightLong: rgb-to-long($primary-bright-rgb);
   secondaryDarker: $secondary-darker;
+  secondaryDarkerLong: rgb-to-long($secondary-darker-rgb);
   secondaryMedium: $secondary-medium;
-  secondaryBright: $secondary-bright;
+  secondaryMediumLong: rgb-to-long($secondary-medium-rgb);
 }
