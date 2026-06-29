@@ -70,7 +70,7 @@ const renderer = new WebGLRenderer({
 });
 
 renderer.setClearColor(primaryDarker);
-renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setScissorTest(true);
 
 renderer.localClippingEnabled = true;
