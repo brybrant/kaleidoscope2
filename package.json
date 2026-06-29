@@ -1,9 +1,9 @@
 {
-  "name": "@brybrant/kaleidoscope2",
+  "name": "@brybrant/kaleidoscope",
   "author": "brybrant",
   "license": "GPL-3.0-only",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,9 +14,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brybrant/kaleidoscope2.git"
+    "url": "git+https://github.com/brybrant/kaleidoscope.git"
   },
-  "homepage": "https://brybrant.github.io/kaleidoscope2/",
+  "homepage": "https://brybrant.github.io/kaleidoscope/",
   "dependencies": {
     "three": "^0.185.0"
   },
